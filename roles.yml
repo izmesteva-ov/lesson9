@@ -4,7 +4,7 @@
   become: yes
   roles:
     - commonp
-
+    - security
 
 - name: build configuration
   hosts: build
@@ -12,4 +12,4 @@
   roles:
     - commonb
     - build
-
+    - security
