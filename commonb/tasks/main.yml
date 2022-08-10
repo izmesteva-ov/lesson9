@@ -1,0 +1,8 @@
+---
+# tasks file for commonb
+- name: Install many packages
+  apt: name={{ item }} state=present
+  with_items:
+    - default-jdk
+    - maven
+    - git

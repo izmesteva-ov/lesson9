@@ -1,0 +1,6 @@
+---
+# tasks file for commonp
+- name: Install package
+  apt:
+    name: tomcat9
+    state: present
