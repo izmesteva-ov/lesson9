@@ -2,13 +2,13 @@
 # tasks file for build
 - name: Git Clone app
   git:
-    repo: "https://github.com/boxfuse/boxfuse-sample-java-war-hello.git"
-    dest: /etc/boxfuse
+    repo: {{ repo_url }}
+    dest: {{ dest_folder }}
 - name: Build app
-  command: mvn clean package chdir="/etc/boxfuse"
+  command: mvn clean package chdir={{ dest_folder }}
 - name: Copy file .war
   synchronize:
-    src: /etc/boxfuse/target/hello-1.0.war
-    dest: /var/lib/tomcat9/webapps/
+    src: {{ dest_folder }}/target/hello-1.0.war
+    dest: {{ dest_tomcat }}
     mode: pull
   delegate_to: 51.250.41.209
